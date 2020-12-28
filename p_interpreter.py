@@ -1,6 +1,7 @@
 from p_parser import *
 from p_stack import *
 import operator as op
+import argparse
 
 
 color_rows = [[ 0,  1,  2,  3,  4,  5],
@@ -101,17 +102,22 @@ def resolve_operation(stack, img, color1, color2, codels1, codels2):
         elif shade == 1: stack.output_num()
         else: stack.output_char()
 
-"""
-pointer starts on the first coord.
-while current codel is not gray:
-    pointer saves value of current codel
-    pointer moves forward and executes command appropiately
-"""
+
+parser = argparse.ArgumentParser(description='Interpreter options')
+parser.add_argument('-f', '--file', required=True, help='file.png to interpret')
+parser.add_argument('-p', '--palette', required=False,
+                    help='file.png of the palette to be used by the interpreter')
+
+args = parser.parse_args()
+
+
 stack = Stack()
 
-img_file = 'images/20.png'
+img_file = args.file
 img = read_img(img_file)
 palette = read_img('images/palette.png')
+if args.palette is not None:
+    palette = read_img(args.palette)
 init([0,0], stack, img, palette)
 
 # print(palette[0])

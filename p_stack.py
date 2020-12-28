@@ -75,10 +75,10 @@ class Stack:
                 raise_bottom(depth, self)
 
     def input_num(self):
-        x = int(input())
+        x = int(input('IN:'))
         self.push(x)
     def input_char(self):
-        x = ord(input())
+        x = ord(input('IN:'))
         self.push(x)
     def output_num(self):
         print('OUT:', self.pop())
