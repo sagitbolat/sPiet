@@ -3,7 +3,7 @@ sPiet is an interpreter for a dialect of Piet.
 
 ## Changelog
 **Version 0.2.1**
--Added Command line arguments to control input file and color palette
+- Added Command line arguments to control input file and color palette
 
 **Version 0.2.0**
 - Fixex bugs with hue and shade not registering properly.
